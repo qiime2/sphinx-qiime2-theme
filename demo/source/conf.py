@@ -1,8 +1,7 @@
 project = 'Demo Documentation'
 copyright = '2019, q2d2'
 author = 'q2d2'
-extensions = [
-]
+extensions = []
 templates_path = ['_templates']
 exclude_patterns = []
 html_theme = 'qiime2'
