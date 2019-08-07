@@ -5,7 +5,11 @@ Welcome to Demo Documentation's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   foo
+   bar
+   baz
+   things/alpha
+   things/beta
 
 Indices and tables
 ==================
