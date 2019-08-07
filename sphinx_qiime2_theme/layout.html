@@ -1,0 +1,66 @@
+{%- extends "basic/layout.html" %}
+
+{% block header %}
+    <nav class="navbar is-light">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img class="header"
+                         src="{{ pathto('_static/' + theme_qiime2_logo, 1) }}"
+                         {%- if theme_qiime2_logo_alt_txt -%}
+                         alt="{{ theme_qiime2_logo_alt_txt }}"
+                         {% endif %}
+                         style="max-height: 40px;">
+                </a>
+                <a role="button"
+                   class="navbar-burger"
+                   data-target="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start"></div>
+                <div class="navbar-end">
+                    {%- if theme_navbar_resource_urls -%}
+                    <a class="navbar-item" href="/">
+                        Home
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <p class="navbar-link">
+                            Resources
+                        </p>
+                        <div class="navbar-dropdown is-boxed">
+                            {%- for label, href in theme_navbar_resource_urls.items() -%}
+                            <a class="navbar-item" target="_blank" href="{{ href }}">
+                                {{ label }}
+                            </a>
+                            {%- endfor %}
+                        </div>
+                    </div>
+                    {%- endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{%- block footer %}
+    <footer class="footer has-text-centered" style="padding-bottom: 3rem;">
+        {%- if show_copyright %}
+          {%- if hasdoc('copyright') %}
+            {% trans path=pathto('copyright'), copyright=copyright|e %}&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
+          {%- else %}
+            {% trans copyright=copyright|e %}&#169; Copyright {{ copyright }}.{% endtrans %}
+          {%- endif %}
+        {%- endif %}
+        {%- if last_updated %}
+          {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+        {%- endif %}
+        {%- if show_sphinx %}
+          {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+        {%- endif %}
+    </footer>
+{%- endblock %}
