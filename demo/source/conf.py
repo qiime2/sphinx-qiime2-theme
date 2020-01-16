@@ -1,5 +1,5 @@
 project = 'Demo Documentation'
-copyright = '2019, q2d2'
+copyright = '2020, q2d2'
 author = 'q2d2'
 extensions = []
 templates_path = ['_templates']
